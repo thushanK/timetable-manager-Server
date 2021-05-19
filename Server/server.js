@@ -7,11 +7,11 @@ const morgan = require("morgan");
 
 const env = require('dotenv');
 
-app.listen(process.env.PORT || 4000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+// app.listen(process.env.PORT || 4000, function(){
+//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+//   });
 
-// var port = process.env.PORT || 4000;
+var port = process.env.PORT || 4000;
 const MongoClient = require("mongodb").MongoClient;
 
 
@@ -67,6 +67,8 @@ app.use("/api/AllocateSession", AllocateSession);
 
 app.use("/api/parallel", ParallelRoute);
 app.use("/api/Not_overlap", OverlapRoute);
+
+
 app.use((req, res, next) => {
     const error = new Error("Not found");
     error.status = 404;
